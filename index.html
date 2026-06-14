@@ -66,16 +66,24 @@
       </div>
 
       <!-- MOUNT: view-a-quadrants -->
-      <div class="quad-grid">
-        <article class="quad">
+      <div class="quad-grid quad-grid--split">
+        <!-- a: project images & design — slideshow (#1, tall) -->
+        <article class="quad quad--tall split-a">
           <span class="quad__num" aria-hidden="true">1</span>
-          <div class="quad__media" data-component="pdf" data-lazy
-               data-pdf="assets/pdf/canrgx-images.pdf"
-               aria-label="CAN-RGX project-state images (PDF)"></div>
-          <p class="quad__caption">Project-state images — CAN-RGX (CLOT-LESS).</p>
+          <div class="quad__media" data-component="slideshow"
+               aria-label="CLOT-LESS hardware and CAD images">
+            <img src="assets/img/clotless-hw.webp" width="1358" height="680"
+                 alt="CLOT-LESS hardware — assembled relay, pump and controller rig">
+            <img src="assets/img/clotless-cad-1.webp" width="1126" height="574"
+                 alt="CAD side view — controller module, IP65 boxes, peristaltic pumps and Ibidi microchannels">
+            <img src="assets/img/clotless-cad-2.webp" width="1104" height="564"
+                 alt="CAD detail — Ibidi microchannels and pinch-valve manifold">
+          </div>
+          <p class="quad__caption">Project images &amp; design — hardware and CAD.</p>
         </article>
 
-        <article class="quad">
+        <!-- b: accepted IAC abstract (#2, tall) -->
+        <article class="quad quad--tall split-b">
           <span class="quad__num" aria-hidden="true">2</span>
           <div class="quad__media" data-component="pdf" data-lazy
                data-pdf="assets/pdf/iac-2026-a1-3-9-x113307-brief.pdf"
@@ -83,7 +91,8 @@
           <p class="quad__caption">Accepted IAC&nbsp;2026 abstract (A1.3.9).</p>
         </article>
 
-        <article class="quad">
+        <!-- c: software demo video (#3, spans the lower-left) -->
+        <article class="quad split-c">
           <span class="quad__num" aria-hidden="true">3</span>
           <div class="quad__media" data-component="youtube"
                data-yt="18fuxHM_eAY"
@@ -93,8 +102,17 @@
           <p class="quad__caption">Software in progress.</p>
         </article>
 
-        <article class="quad quad--about">
+        <!-- d: project-state images PDF (#4) -->
+        <article class="quad split-d">
           <span class="quad__num" aria-hidden="true">4</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/canrgx-images.pdf"
+               aria-label="CAN-RGX project-state images (PDF)"></div>
+          <p class="quad__caption">Project-state images — CAN-RGX (CLOT-LESS).</p>
+        </article>
+
+        <!-- e: about (shares the lower-right column with the project PDF) -->
+        <article class="quad quad--about split-e">
           <div class="about">
             <h3 class="about__title">About the project</h3>
             <p class="about__body">CLOT-LESS investigates how microgravity changes the way

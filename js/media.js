@@ -216,7 +216,69 @@
     });
   }
 
+  /* ============================================================
+     Slide show — cycle a set of <img> with themed dots + arrows
+     <div data-component="slideshow"><img ...><img ...></div>
+     ============================================================ */
+  function mountSlideshow(el) {
+    el.classList.add("slideshow");
+    var imgs = Array.prototype.slice.call(el.querySelectorAll("img"));
+    var n = imgs.length;
+    if (!n) return;
+
+    var vp = ce("div", "slideshow__viewport");
+    var slides = imgs.map(function (img, i) {
+      var fig = ce("figure", "slide");
+      if (i === 0) fig.classList.add("is-active");
+      img.loading = "lazy";
+      img.decoding = "async";
+      fig.appendChild(img);
+      vp.appendChild(fig);
+      return fig;
+    });
+
+    var nav = ce("div", "slideshow__nav");
+    var prev = ce("button", "slideshow__arrow");
+    prev.type = "button"; prev.setAttribute("aria-label", "Previous image");
+    prev.innerHTML = '<span aria-hidden="true">‹</span>';
+    var next = ce("button", "slideshow__arrow");
+    next.type = "button"; next.setAttribute("aria-label", "Next image");
+    next.innerHTML = '<span aria-hidden="true">›</span>';
+    var dotsWrap = ce("div", "slideshow__dots");
+    var dots = imgs.map(function (_, i) {
+      var d = ce("button", "slideshow__dot");
+      d.type = "button"; d.setAttribute("aria-label", "Show image " + (i + 1) + " of " + n);
+      d.addEventListener("click", function () { show(i); });
+      dotsWrap.appendChild(d);
+      return d;
+    });
+    nav.appendChild(prev); nav.appendChild(dotsWrap); nav.appendChild(next);
+
+    el.innerHTML = "";
+    el.appendChild(vp);
+    el.appendChild(nav);
+
+    var idx = 0;
+    function show(i) {
+      idx = (i + n) % n;
+      slides.forEach(function (s, j) { s.classList.toggle("is-active", j === idx); });
+      dots.forEach(function (d, j) {
+        d.classList.toggle("is-active", j === idx);
+        if (j === idx) d.setAttribute("aria-current", "true");
+        else d.removeAttribute("aria-current");
+      });
+    }
+    prev.addEventListener("click", function () { show(idx - 1); });
+    next.addEventListener("click", function () { show(idx + 1); });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); show(idx - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); show(idx + 1); }
+    });
+    show(0);
+  }
+
   Portfolio.register("youtube", mountYouTube);
   Portfolio.register("video", mountVideo);
   Portfolio.register("gallery", mountGallery);
+  Portfolio.register("slideshow", mountSlideshow);
 })();

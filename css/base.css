@@ -319,6 +319,33 @@ h1 { font-weight: 700; letter-spacing: -0.02em; }
   .quad--tall .quad__media { height: var(--media-h); }
 }
 
+/* ---- Split layout (CLOT-LESS): slideshow + IAC on top; software video
+   spans the left of the lower block, the project PDF + About stack on the
+   right so their combined height matches the video. ---- */
+.quad-grid--split {
+  grid-template-areas:
+    "a b"
+    "c d"
+    "c e";
+  align-items: stretch;
+}
+.split-a { grid-area: a; }
+.split-b { grid-area: b; }
+.split-c { grid-area: c; }
+.split-d { grid-area: d; }
+.split-e { grid-area: e; }
+/* video fills the full height of rows 2–3 (= project PDF + About) */
+.split-c .quad__media { height: auto; flex: 1 1 auto; min-height: 0; }
+.split-d .quad__media { height: clamp(300px, 38vh, 430px); }
+.split-e .about { min-height: 0; height: auto; justify-content: flex-start; }
+@media (max-width: 760px) {
+  .quad-grid--split {
+    grid-template-columns: 1fr;
+    grid-template-areas: "a" "b" "c" "d" "e";
+  }
+  .split-c .quad__media { height: var(--media-h-video); flex: none; }
+}
+
 /* Faint "loading takes a moment" note under a project title */
 .load-note {
   margin-top: 0.5rem;

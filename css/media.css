@@ -134,6 +134,85 @@
   .gallery .gallery__item { aspect-ratio: 16 / 10; }
 }
 
+/* ============================================================
+   Slide show (themed dots + arrows at the bottom)
+   ============================================================ */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: var(--hair);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.slideshow__viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.75rem, 2vw, var(--sp-3));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur) var(--ease);
+}
+.slideshow .slide.is-active { opacity: 1; visibility: visible; }
+.slideshow .slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.slideshow__nav {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 0.7rem;
+  border-top: var(--hair);
+  background: color-mix(in srgb, var(--surface) 88%, var(--brown-soft));
+}
+.slideshow__arrow {
+  width: 34px; height: 34px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: var(--hair);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.25rem; line-height: 1;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: background-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.slideshow__arrow:hover { background: var(--brown-soft); }
+.slideshow__arrow:active { transform: scale(0.94); }
+.slideshow__dots { display: flex; align-items: center; gap: 0.5rem; }
+.slideshow__dot {
+  width: 9px; height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--brown);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.slideshow__dot:hover { background: var(--brown-soft); }
+.slideshow__dot.is-active { background: var(--brown); transform: scale(1.25); }
+
 /* ---- Lightbox overlay ---- */
 body.lb-open { overflow: hidden; }
 .lightbox {
