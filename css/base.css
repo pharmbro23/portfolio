@@ -324,9 +324,12 @@ h1 { font-weight: 700; letter-spacing: -0.02em; }
    right so their combined height matches the video. ---- */
 .quad-grid--split {
   grid-template-areas:
-    "a b"
-    "c d"
-    "c e";
+    "a e"
+    "a d"
+    "c b";
+  /* row1 = About (auto) · row2 = project PDF · row3 = video + IAC.
+     Explicit rows so the spanning slideshow can't collapse the bottom row. */
+  grid-template-rows: auto clamp(300px, 38vh, 430px) var(--media-h);
   align-items: stretch;
 }
 .split-a { grid-area: a; }
@@ -334,16 +337,24 @@ h1 { font-weight: 700; letter-spacing: -0.02em; }
 .split-c { grid-area: c; }
 .split-d { grid-area: d; }
 .split-e { grid-area: e; }
-/* video fills the full height of rows 2–3 (= project PDF + About) */
-.split-c .quad__media { height: auto; flex: 1 1 auto; min-height: 0; }
-.split-d .quad__media { height: clamp(300px, 38vh, 430px); }
+/* Each media flex-fills its grid cell; the caption sits beneath it. The
+   slideshow (a) therefore fills rows 1–2 = About + project PDF. */
+.split-a .quad__media,
+.split-b .quad__media,
+.split-c .quad__media,
+.split-d .quad__media { height: auto; flex: 1 1 auto; min-height: 0; }
+/* About sizes to its text (top-right) */
 .split-e .about { min-height: 0; height: auto; justify-content: flex-start; }
 @media (max-width: 760px) {
   .quad-grid--split {
     grid-template-columns: 1fr;
-    grid-template-areas: "a" "b" "c" "d" "e";
+    grid-template-rows: none;
+    grid-template-areas: "a" "e" "d" "c" "b";
   }
-  .split-c .quad__media { height: var(--media-h-video); flex: none; }
+  .split-a .quad__media,
+  .split-b .quad__media,
+  .split-c .quad__media,
+  .split-d .quad__media { height: var(--media-h); flex: none; }
 }
 
 /* Faint "loading takes a moment" note under a project title */

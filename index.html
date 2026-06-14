@@ -67,51 +67,28 @@
 
       <!-- MOUNT: view-a-quadrants -->
       <div class="quad-grid quad-grid--split">
-        <!-- a: project images & design — slideshow (#1, tall) -->
-        <article class="quad quad--tall split-a">
+        <!-- a: project images & design — slideshow (#1, top-left, spans rows 1-2) -->
+        <article class="quad split-a">
           <span class="quad__num" aria-hidden="true">1</span>
           <div class="quad__media" data-component="slideshow"
                aria-label="CLOT-LESS hardware and CAD images">
-            <img src="assets/img/clotless-hw.webp" width="1358" height="680"
-                 alt="CLOT-LESS hardware — assembled relay, pump and controller rig">
-            <img src="assets/img/clotless-cad-1.webp" width="1126" height="574"
-                 alt="CAD side view — controller module, IP65 boxes, peristaltic pumps and Ibidi microchannels">
-            <img src="assets/img/clotless-cad-2.webp" width="1104" height="564"
-                 alt="CAD detail — Ibidi microchannels and pinch-valve manifold">
+            <img src="assets/img/clotless-1.webp" width="824" height="744"
+                 alt="CAD side view — controller module, IP65 boxes, pumps and Ibidi microchannels">
+            <img src="assets/img/clotless-2.webp" width="1100" height="872"
+                 alt="CAD view — IP65 boxes, peristaltic pumps, pinch valves and microchannels">
+            <img src="assets/img/clotless-3.webp" width="952" height="716"
+                 alt="Assembled hardware — control rig with pumps and wiring">
+            <img src="assets/img/clotless-4.webp" width="594" height="728"
+                 alt="Hardware close-up — controller board and pump modules">
+            <img src="assets/img/clotless-5.webp" width="860" height="636"
+                 alt="Hardware close-up — peristaltic pumps with displays">
+            <img src="assets/img/clotless-6.webp" width="648" height="536"
+                 alt="Electronics close-up — relay board and control wiring">
           </div>
           <p class="quad__caption">Project images &amp; design — hardware and CAD.</p>
         </article>
 
-        <!-- b: accepted IAC abstract (#2, tall) -->
-        <article class="quad quad--tall split-b">
-          <span class="quad__num" aria-hidden="true">2</span>
-          <div class="quad__media" data-component="pdf" data-lazy
-               data-pdf="assets/pdf/iac-2026-a1-3-9-x113307-brief.pdf"
-               aria-label="Accepted IAC 2026 abstract (PDF)"></div>
-          <p class="quad__caption">Accepted IAC&nbsp;2026 abstract (A1.3.9).</p>
-        </article>
-
-        <!-- c: software demo video (#3, spans the lower-left) -->
-        <article class="quad split-c">
-          <span class="quad__num" aria-hidden="true">3</span>
-          <div class="quad__media" data-component="youtube"
-               data-yt="18fuxHM_eAY"
-               data-poster="assets/img/clotless-demo-poster.webp"
-               data-title="CLOT-LESS software demo"
-               aria-label="CLOT-LESS software demo (YouTube video)"></div>
-          <p class="quad__caption">Software in progress.</p>
-        </article>
-
-        <!-- d: project-state images PDF (#4) -->
-        <article class="quad split-d">
-          <span class="quad__num" aria-hidden="true">4</span>
-          <div class="quad__media" data-component="pdf" data-lazy
-               data-pdf="assets/pdf/canrgx-images.pdf"
-               aria-label="CAN-RGX project-state images (PDF)"></div>
-          <p class="quad__caption">Project-state images — CAN-RGX (CLOT-LESS).</p>
-        </article>
-
-        <!-- e: about (shares the lower-right column with the project PDF) -->
+        <!-- e: about (top-right corner) -->
         <article class="quad quad--about split-e">
           <div class="about">
             <h3 class="about__title">About the project</h3>
@@ -122,6 +99,35 @@
               working toward evidence-informed autonomous medical care in deep space.</p>
             <p class="about__meta">CAN-RGX 2025–2026 · Accepted to IAC&nbsp;2026 (Space Life Sciences) · UBC × U&nbsp;of&nbsp;T</p>
           </div>
+        </article>
+
+        <!-- d: project-state images PDF (#2, below the About) -->
+        <article class="quad split-d">
+          <span class="quad__num" aria-hidden="true">2</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/canrgx-images.pdf"
+               aria-label="CAN-RGX project-state images (PDF)"></div>
+          <p class="quad__caption">Project-state images — CAN-RGX (CLOT-LESS).</p>
+        </article>
+
+        <!-- c: software demo video (#3, bottom-left) -->
+        <article class="quad split-c">
+          <span class="quad__num" aria-hidden="true">3</span>
+          <div class="quad__media" data-component="youtube"
+               data-yt="18fuxHM_eAY"
+               data-poster="assets/img/clotless-demo-poster.webp"
+               data-title="CLOT-LESS software demo"
+               aria-label="CLOT-LESS software demo (YouTube video)"></div>
+          <p class="quad__caption">Software in progress.</p>
+        </article>
+
+        <!-- b: accepted IAC abstract (#4, bottom-right) -->
+        <article class="quad split-b">
+          <span class="quad__num" aria-hidden="true">4</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/iac-2026-a1-3-9-x113307-brief.pdf"
+               aria-label="Accepted IAC 2026 abstract (PDF)"></div>
+          <p class="quad__caption">Accepted IAC&nbsp;2026 abstract (A1.3.9).</p>
         </article>
       </div>
       <!-- /MOUNT: view-a-quadrants -->
