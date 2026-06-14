@@ -65,8 +65,10 @@
   --maxw-text:   62ch;
   --page-gutter: clamp(1.25rem, 1rem + 3vw, 4rem);
 
-  /* Uniform media height for quadrant cells (keeps the grid tidy across
-     PDFs / videos / images). --media-h-wide is for full-width cells. */
-  --media-h:      clamp(320px, 44vh, 480px);
-  --media-h-wide: clamp(420px, 56vh, 640px);
+  /* Media height for quadrant cells. PDFs + image gallery use the taller,
+     more-square --media-h so more of the page/image is visible; videos keep
+     a 16:9-friendly height; --media-h-wide is for full-width cells. */
+  --media-h:       clamp(400px, 56vh, 560px);
+  --media-h-video: clamp(320px, 44vh, 480px);
+  --media-h-wide:  clamp(480px, 64vh, 700px);
 }
