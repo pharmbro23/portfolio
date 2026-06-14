@@ -71,4 +71,5 @@
   --media-h:       clamp(400px, 56vh, 560px);
   --media-h-video: clamp(320px, 44vh, 480px);
   --media-h-wide:  clamp(480px, 64vh, 700px);
+  --media-h-tall:  clamp(520px, 74vh, 760px); /* .quad--tall — extra vertical room */
 }

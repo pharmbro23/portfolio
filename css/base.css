@@ -313,6 +313,12 @@ h1 { font-weight: 700; letter-spacing: -0.02em; }
 /* Self-hosted videos keep a 16:9-friendly box (PDFs/gallery use --media-h). */
 .quad__media[data-component="video"] { height: var(--media-h-video); }
 
+/* Opt-in extra-tall cells (e.g. anesthesia setup + IAC presentation) */
+.quad--tall .quad__media { height: var(--media-h-tall); }
+@media (max-width: 760px) {
+  .quad--tall .quad__media { height: var(--media-h); }
+}
+
 /* Faint "loading takes a moment" note under a project title */
 .load-note {
   margin-top: 0.5rem;

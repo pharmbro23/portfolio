@@ -103,6 +103,12 @@
   height: 100%;
 }
 .gallery--single { grid-template-columns: 1fr; }
+/* In an extra-tall box, stack the two images so each spans the full width
+   (landscape photos/diagrams stay legible instead of being side-cropped). */
+.quad--tall .gallery {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
 .gallery .gallery__item {
   margin: 0;
   height: 100%;
