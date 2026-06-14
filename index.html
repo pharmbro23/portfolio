@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Adrian Tabari</title>
+  <meta name="description" content="Portfolio of Adrian Tabari — CAN-RGX (CLOT-LESS) and Anesthesia in Microgravity.">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#F7F4EE">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts: Apple devices use system Avenir Next (no download);
+       everyone else gets self-hosted Avenir. No external font request. -->
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pdf.css">
+  <link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main">
+
+    <!-- ============================================================
+         LANDING  (#/)
+         ============================================================ -->
+    <section class="view view-home" id="view-home" aria-label="Home">
+      <div class="home__inner">
+        <h1 class="home__title">
+          <span class="home__title-name">Portfolio</span>
+          <span class="home__dash">—</span>
+          <span class="home__title-name">Adrian Tabari</span>
+        </h1>
+
+        <nav class="dock" aria-label="Projects">
+          <a class="dock__item" href="#/clotless" data-target="view-clotless"
+             aria-label="CAN-RGX Project (CLOT-LESS)">
+            <span class="dock__label">CAN-RGX</span>
+            <span class="dock__full" aria-hidden="true">CAN-RGX Project (CLOT-LESS)</span>
+          </a>
+          <a class="dock__item" href="#/anesthesia" data-target="view-anesthesia"
+             aria-label="Anesthesia in Microgravity">
+            <span class="dock__label">Anesthesia</span>
+            <span class="dock__full" aria-hidden="true">Anesthesia in Microgravity</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW A — CAN-RGX Project (CLOT-LESS)   (#/clotless)
+         ============================================================ -->
+    <section class="view view-project" id="view-clotless"
+             aria-label="CAN-RGX Project (CLOT-LESS)">
+      <div class="project__bar">
+        <a class="home-link" href="#/">
+          <span class="home-link__arrow" aria-hidden="true">←</span> Portfolio
+        </a>
+        <div class="project__heading">
+          <h2 class="project__title">CAN-RGX Project
+            <span class="project__subtitle">CLOT-LESS</span>
+          </h2>
+        </div>
+      </div>
+
+      <!-- MOUNT: view-a-quadrants -->
+      <div class="quad-grid">
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">1</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/canrgx-images.pdf"
+               aria-label="CAN-RGX project-state images (PDF)"></div>
+          <p class="quad__caption">Project-state images — CAN-RGX (CLOT-LESS).</p>
+        </article>
+
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">2</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/iac-2026-a1-3-9-x113307-brief.pdf"
+               aria-label="Accepted IAC 2026 abstract (PDF)"></div>
+          <p class="quad__caption">Accepted IAC&nbsp;2026 abstract (A1.3.9).</p>
+        </article>
+
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">3</span>
+          <!-- PENDING: YouTube link from Adrian → swap to
+               <div class="quad__media" data-component="youtube" data-lazy
+                    data-yt="VIDEO_ID" data-poster="…"></div> -->
+          <div class="quad__media">
+            <div class="placeholder" data-slot="view-a-q3-youtube">
+              <span class="placeholder__title">Software demo — video</span>
+              <span class="placeholder__hint">YouTube link pending. Drops in here as a click-to-play facade.</span>
+            </div>
+          </div>
+          <p class="quad__caption">Software in progress.</p>
+        </article>
+
+        <article class="quad quad--about">
+          <span class="quad__num" aria-hidden="true">4</span>
+          <div class="about">
+            <h3 class="about__title">About the project</h3>
+            <p class="about__body">CLOT-LESS investigates how microgravity changes the way
+              the clot-busting drug alteplase dissolves blood clots — a credible medical
+              emergency on long-duration spaceflight. A compact, flight-qualified microfluidic
+              platform measures clot-resistance decay in real time aboard a parabolic flight,
+              working toward evidence-informed autonomous medical care in deep space.</p>
+            <p class="about__meta">CAN-RGX 2025–2026 · Accepted to IAC&nbsp;2026 (Space Life Sciences) · UBC × U&nbsp;of&nbsp;T</p>
+          </div>
+        </article>
+      </div>
+      <!-- /MOUNT: view-a-quadrants -->
+    </section>
+
+    <!-- ============================================================
+         VIEW B — Anesthesia in Microgravity   (#/anesthesia)
+         ============================================================ -->
+    <section class="view view-project" id="view-anesthesia"
+             aria-label="Anesthesia in Microgravity">
+      <div class="project__bar">
+        <a class="home-link" href="#/">
+          <span class="home-link__arrow" aria-hidden="true">←</span> Portfolio
+        </a>
+        <div class="project__heading">
+          <h2 class="project__title">Anesthesia in Microgravity</h2>
+        </div>
+      </div>
+
+      <!-- MOUNT: view-b-quadrants -->
+      <div class="quad-grid">
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">1</span>
+          <div class="quad__media" data-component="video" data-lazy
+               data-video="assets/video/microgravity-flight-2.mp4"
+               data-poster="assets/img/microgravity-flight-2-poster.webp"
+               aria-label="ESA/Novespace parabolic flight video"></div>
+          <p class="quad__caption">ESA/Novespace parabolic flight.</p>
+        </article>
+
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">2</span>
+          <div class="quad__media" data-component="video" data-lazy
+               data-video="assets/video/microgravity-flight-1.mp4"
+               data-poster="assets/img/microgravity-flight-1-poster.webp"
+               aria-label="Parabolic flight — onboard footage"></div>
+          <p class="quad__caption">Parabolic flight — onboard footage.</p>
+        </article>
+
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">3</span>
+          <div class="quad__media" data-component="gallery"
+               aria-label="Experimental setup images">
+            <figure class="gallery__item">
+              <img src="assets/img/setup-1.webp" alt="Experimental setup — apparatus enclosure"
+                   data-full="assets/img/setup-1.webp" loading="lazy" decoding="async" width="1134" height="766">
+            </figure>
+            <figure class="gallery__item">
+              <img src="assets/img/setup-2.webp" alt="Experimental setup — second view"
+                   data-full="assets/img/setup-2.webp" loading="lazy" decoding="async" width="1750" height="788">
+            </figure>
+          </div>
+          <p class="quad__caption">Experimental setup.</p>
+        </article>
+
+        <article class="quad">
+          <span class="quad__num" aria-hidden="true">4</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/anesthesia-iac-presentation.pdf"
+               aria-label="Anesthesia IAC presentation (PDF)"></div>
+          <p class="quad__caption">IAC presentation.</p>
+        </article>
+
+        <article class="quad quad--wide">
+          <span class="quad__num" aria-hidden="true">5</span>
+          <div class="quad__media" data-component="pdf" data-lazy
+               data-pdf="assets/pdf/poster-presentation.pdf"
+               aria-label="Canadian Space Conference poster (PDF)"></div>
+          <p class="quad__caption">Canadian Space Conference poster.</p>
+        </article>
+      </div>
+      <!-- /MOUNT: view-b-quadrants -->
+    </section>
+
+  </main>
+
+  <!-- app.js first: defines window.Portfolio before components register -->
+  <script src="js/app.js" defer></script>
+  <script src="js/pdf-viewer.js" defer></script>
+  <script src="js/media.js" defer></script>
+</body>
+</html>

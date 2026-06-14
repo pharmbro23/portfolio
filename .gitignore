@@ -1,0 +1,15 @@
+# Local source assets & build tooling — NOT part of the deployed site.
+# Original (uncompressed) media and the Avenir source TTFs live here;
+# the site serves the optimized copies in /assets and /fonts.
+/documents/
+
+# Screenshot/QA tooling (includes node_modules)
+/.preview/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local Claude Code settings
+/.claude/

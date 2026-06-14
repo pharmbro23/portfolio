@@ -1,0 +1,202 @@
+/* ============================================================
+   media.css — YouTube facade, self-hosted video, gallery + lightbox
+   (§5.2–5.4). Scoped to .yt / .videoc / .gallery / .lightbox
+   ============================================================ */
+
+/* ---- shared play glyph ---- */
+.play-btn {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  border: var(--hair);
+  box-shadow: var(--shadow-lift);
+  transition: transform var(--dur-fast) var(--ease),
+              background-color var(--dur-fast) var(--ease);
+}
+.play-glyph { width: 26px; height: 26px; fill: var(--ink); margin-left: 3px; }
+
+/* ============================================================
+   5.2 YouTube facade
+   ============================================================ */
+.yt {
+  position: relative;
+  width: 100%;
+  height: 100%;            /* fills the uniform .quad__media area */
+  background: var(--brown-soft);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.yt__btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--brown-soft);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+}
+.yt__btn::after { /* gentle scrim for glyph contrast */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(43, 40, 37, 0.18), rgba(43, 40, 37, 0.05) 60%, transparent);
+}
+.yt__btn .play-btn { position: relative; z-index: 1; }
+.yt__btn:hover .play-btn,
+.yt__btn:focus-visible .play-btn { transform: scale(1.08); background: var(--surface); }
+.yt__frame { width: 100%; height: 100%; border: 0; }
+
+/* ============================================================
+   5.3 Self-hosted video
+   ============================================================ */
+.videoc {
+  position: relative;
+  width: 100%;
+  height: 100%;            /* fills the uniform .quad__media area */
+  background: var(--video-mat);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.videoc__el {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* handles portrait & landscape sources cleanly */
+  background: var(--video-mat);
+}
+.videoc__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+.videoc__play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(43, 40, 37, 0.28), rgba(43, 40, 37, 0.08) 60%, transparent);
+}
+.videoc__play .play-btn { position: relative; z-index: 1; }
+.videoc__play:hover .play-btn { transform: scale(1.08); background: var(--surface); }
+.videoc.is-playing .videoc__play { display: none; }
+
+/* ============================================================
+   5.4 Image gallery + lightbox
+   ============================================================ */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  gap: 0.6rem;
+  height: 100%;
+}
+.gallery--single { grid-template-columns: 1fr; }
+.gallery .gallery__item {
+  margin: 0;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: var(--hair);
+  border-radius: var(--radius-sm);
+  transition: filter var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.gallery img:hover { filter: brightness(1.03); }
+
+@media (max-width: 760px) {
+  /* let a 2-up gallery breathe by stacking at natural height on mobile */
+  .quad__media[data-component="gallery"] { height: auto; }
+  .gallery { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+  .gallery .gallery__item { aspect-ratio: 16 / 10; }
+}
+
+/* ---- Lightbox overlay ---- */
+body.lb-open { overflow: hidden; }
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+.lightbox[hidden] { display: none; }
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px) saturate(1.05);
+  -webkit-backdrop-filter: blur(10px) saturate(1.05);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .lightbox:not([hidden]) .lightbox__stage { animation: lb-in 260ms var(--ease-out) both; }
+  @keyframes lb-in { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: scale(1); } }
+}
+.lightbox__stage {
+  position: relative;
+  margin: 0;
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: var(--radius);
+  border: var(--hair);
+  box-shadow: var(--shadow-lift);
+  background: var(--surface);
+}
+.lightbox__cap {
+  color: var(--muted);
+  font-size: var(--fs-300);
+  text-align: center;
+}
+.lightbox__cap[hidden] { display: none; }
+
+.lightbox__btn {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: var(--hair);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background-color var(--dur-fast) var(--ease),
+              transform var(--dur-fast) var(--ease);
+}
+.lightbox__btn:hover { background: var(--brown-soft); }
+.lightbox__btn[hidden] { display: none; }
+.lightbox__close { top: clamp(0.75rem, 3vw, 1.5rem); right: clamp(0.75rem, 3vw, 1.5rem); }
+.lightbox__prev { left: clamp(0.5rem, 2vw, 1.25rem); top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: clamp(0.5rem, 2vw, 1.25rem); top: 50%; transform: translateY(-50%); }
+.lightbox__prev:hover { transform: translateY(-50%) scale(1.06); }
+.lightbox__next:hover { transform: translateY(-50%) scale(1.06); }
