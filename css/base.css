@@ -375,7 +375,7 @@ h1 { font-weight: 700; letter-spacing: -0.02em; }
   padding: clamp(0.25rem, 1vw, var(--sp-2));
 }
 .overview__col { display: flex; flex-direction: column; gap: var(--sp-2); }
-.overview__col .about__body { max-width: 78ch; }
+.overview__col .about__body { max-width: none; }
 .quad__caption {
   flex: 0 0 auto;
   color: var(--muted);
